@@ -143,6 +143,58 @@
       opacity: 0.9;
     }
 
+    /* Continue section before the second walk */
+    .continue-section {
+      min-height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background: #000;
+    }
+
+    .continue-inner {
+      max-width: 640px;
+      text-align: left;
+    }
+
+    .continue-heading {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .continue-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    /* Turn prompt between front and side views */
+    .turn-section {
+      min-height: 20vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 16px 24px;
+      background: #000;
+    }
+
+    .turn-inner {
+      max-width: 640px;
+      text-align: left;
+    }
+
+    .turn-text {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
     /* ---------- TRANSITION (SCROLL-DRIVEN WALK) ---------- */
 
     .walk {
@@ -342,7 +394,155 @@
           class="scene-step"
           data-src="img/s1-04.jpeg"
           data-title="1520 E 53rd – 2025"
-          data-text="Jump to the present and we have the newly opened Chic-Fil-A under construction. But one thing is of course constant.">
+          data-text="Jump to the present and we see the new Chic-Fil-A under construction. But one thing is of course constant.">
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTINUE PROMPT BEFORE SECOND WALK -->
+    <section class="continue-section">
+      <div class="continue-inner">
+        <h2 class="continue-heading">Let’s continue.</h2>
+        <p class="continue-text">
+          Keep walking west along 53rd to reach the old Dorchester corner.
+        </p>
+      </div>
+    </section>
+
+    <!-- TRANSITION 2: scroll-driven walk t2-01 ... t2-31 -->
+    <section class="walk"
+             data-walk
+             data-prefix="t2-"
+             data-frames="31"
+             data-ext="jpeg">
+      <div class="walk-sticky">
+        <img class="walk-image" src="img/t2-01.jpeg" alt="" />
+      </div>
+    </section>
+
+    <!-- SECOND STOP SECTION -->
+    <section class="stop-section">
+      <div class="stop-inner">
+        <h2 class="stop-heading">Second stop — 1380 E 53rd (Dorchester Corner)</h2>
+        <p class="stop-text">
+          This corner has seen more than a few menu changes as we'll see.
+          For many of us, it’s been a reliable place to grab food in a pinch.
+        </p>
+      </div>
+    </section>
+
+    <!-- SCENES GROUP 2A: Ribs N Bibs to Wingstop -->
+    <section class="scenes" data-scenes>
+      <div class="scenes-sticky">
+        <div class="scenes-frame">
+          <div class="scene-caption scene-caption-top">
+            <h2 class="scene-title"></h2>
+          </div>
+
+          <img class="scenes-image" src="" alt="" />
+
+          <div class="scene-caption scene-caption-bottom">
+            <p class="scene-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-steps">
+        <div
+          class="scene-step"
+          data-src="img/s2-01.jpeg"
+          data-title="1380 E 53rd – 2007"
+          data-text="Ribs N Bibs holding down the corner.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-02.jpeg"
+          data-title="1380 E 53rd – 2011"
+          data-text="There's a new sidewalk, but little else seems to have changed.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-03.jpeg"
+          data-title="1380 E 53rd – 2016"
+          data-text="Out with the ribs, in with Hyde Park Taco Station!">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-04.jpeg"
+          data-title="1380 E 53rd – 2019"
+          data-text="Wingstop announces its arrival boldly.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-05.jpeg"
+          data-title="1380 E 53rd – 2025"
+          data-text="Wingstop persists for now. Different name, different menu, but the same story: food doesn't change, just the branding.">
+        </div>
+      </div>
+    </section>
+
+    <!-- TURN PROMPT BETWEEN FRONT AND SIDE VIEW -->
+    <section class="turn-section">
+      <div class="turn-inner">
+        <p class="turn-text">
+          Now let’s turn and look to the left, toward what’s now the Study Hotel and Mesler.
+        </p>
+      </div>
+    </section>
+
+    <!-- SCENES GROUP 2B: Looking back toward Mesler block -->
+    <section class="scenes" data-scenes>
+      <div class="scenes-sticky">
+        <div class="scenes-frame">
+          <div class="scene-caption scene-caption-top">
+            <h2 class="scene-title"></h2>
+          </div>
+
+          <img class="scenes-image" src="" alt="" />
+
+          <div class="scene-caption scene-caption-bottom">
+            <p class="scene-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-steps">
+        <div
+          class="scene-step"
+          data-src="img/s2-06.jpeg"
+          data-title="Looking east on 53rd – 2025">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-07.jpeg"
+          data-title="Looking east on 53rd – 2025"
+          data-text="The whole block is filled in now: The Study Hotel, storefronts, trees, people, cars.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-08.jpeg"
+          data-title="Looking east on 53rd – 2016"
+          data-text="The hotel isn't there yet, but behind the roses on the left you can see a stone marking where President Obama is said to have had his first kiss with Michelle back in 1989.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-09.jpeg"
+          data-title="Looking east on 53rd – 2011"
+          data-text="Everything is even barer: lower buildings, more parking, and a lot of unused space.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s2-10.jpeg"
+          data-title="Looking east on 53rd – 2007"
+          data-text="Back in 2007, there were way more trees than storefronts, more sky than signage. It almost feels like a different neighborhood.">
         </div>
       </div>
     </section>
