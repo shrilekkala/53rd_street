@@ -34,15 +34,113 @@
       min-height: 100vh;
       background: #000;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding: 24px 16px 40px;
+      gap: 16px;
     }
 
     .hero img {
       width: 100%;
+      max-width: 900px;
       height: auto;
       display: block;
       object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .hero-title {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 768px) {
+      .hero-inner {
+        padding: 20px 14px 32px;
+      }
+
+      .hero-title {
+        font-size: 1.6rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Intro / context section before the first walk */
+    .intro {
+      min-height: 40vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      background: #000;
+    }
+
+    .intro-inner {
+      max-width: 640px;
+      text-align: left;
+    }
+
+    .intro-heading {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .intro-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    /* Stop / chapter section between walk and scenes */
+    .stop-section {
+      min-height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      background: #000;
+    }
+
+    .stop-inner {
+      max-width: 640px;
+      text-align: left;
+    }
+
+    .stop-heading {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .stop-text {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      opacity: 0.9;
     }
 
     /* ---------- TRANSITION (SCROLL-DRIVEN WALK) ---------- */
@@ -159,7 +257,24 @@
 
     <!-- HERO / TITLE SCREEN -->
     <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">A Walk Down Memory Lane:</h1>
+        <p class="hero-subtitle">
+          53rd Street (sometimes fondly called Downtown Hyde Park) has been home to many of us, and I'm sure its memories will live on for far longer.
+          Let us take a stroll in time to see how it has become the place we've all grown to love.
+        </p>
+      </div>
       <img src="img/s0_01.jpeg" alt="53rd Street sign" />
+    </section>
+
+    <!-- INTRO / CONTEXT BEFORE FIRST WALK -->
+    <section class="intro">
+      <div class="intro-inner">
+        <h2 class="intro-heading">Let’s rewind.</h2>
+        <p class="intro-text">
+          Scroll down to jump to 2007, and walk west along 53rd.
+        </p>
+      </div>
     </section>
 
     <!-- TRANSITION 1: scroll-driven walk t1-01 ... t1-07 -->
@@ -170,6 +285,17 @@
              data-ext="jpeg">
       <div class="walk-sticky">
         <img class="walk-image" src="img/t1-01.jpeg" alt="" />
+      </div>
+    </section>
+
+    <!-- FIRST STOP SECTION -->
+    <section class="stop-section">
+      <div class="stop-inner">
+        <h2 class="stop-heading">First stop — 1520 E 53rd (Valois)</h2>
+        <p class="stop-text">
+          Valois has been a constant on this block longer than most of us have been in Hyde Park.
+          It has been the go to spot for breakfast, gossip, and morning recovery for generations of students.
+        </p>
       </div>
     </section>
 
@@ -195,28 +321,28 @@
           class="scene-step"
           data-src="img/s1-01.jpeg"
           data-title="1520 E 53rd – 2007"
-          data-text="Valois with Hollywood Video and Bonne Sante as neighbors – 53rd before the chains and apartments arrive.">
+          data-text="Valois with Hollywood Video and Bonne Sante as neighbors, before the chains and apartments arrive.">
         </div>
 
         <div
           class="scene-step"
           data-src="img/s1-02.jpeg"
           data-title="1520 E 53rd – 2013"
-          data-text="By 2013, LA Fitness and the new apartments come in. Valois stays the same while the block modernizes around it.">
+          data-text="By now, LA Fitness and the new apartments come in. The block modernizes...">
         </div>
 
         <div
           class="scene-step"
           data-src="img/s1-03.jpeg"
           data-title="1520 E 53rd – 2016"
-          data-text="Chipotle appears, and this corner starts to look more like the version students know today.">
+          data-text="Chipotle appears, and this corner starts to look more familiar.">
         </div>
 
         <div
           class="scene-step"
           data-src="img/s1-04.jpeg"
           data-title="1520 E 53rd – 2025"
-          data-text="Our mental snapshot: Valois, LA Fitness, the apartments, Chipotle, and a Chick-fil-A under construction.">
+          data-text="Jump to the present and we have the newly opened Chic-Fil-A under construction. But one thing is of course constant.">
         </div>
       </div>
     </section>
