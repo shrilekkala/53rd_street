@@ -195,6 +195,77 @@
       opacity: 0.9;
     }
 
+    /* Epilogue / closing section */
+    .epilogue {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px 80px;
+      background: #000;
+    }
+
+    .epilogue-inner {
+      max-width: 640px;
+      text-align: left;
+    }
+
+    .epilogue-heading {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .epilogue-text {
+      margin: 0 0 12px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .epilogue-sign {
+      margin-top: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .epilogue-sign img {
+      width: 60%;
+      max-width: 400px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 768px) {
+      .epilogue-sign img {
+        width: 80%;
+      }
+    }
+
+    /* ---------- FOOTER ---------- */
+    .site-footer {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px 16px 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.75rem;
+      text-align: center;
+      opacity: 0.6;
+    }
+
+    .site-footer a {
+      color: inherit;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
     /* ---------- TRANSITION (SCROLL-DRIVEN WALK) ---------- */
 
     .walk {
@@ -278,7 +349,7 @@
     .scene-caption-bottom {
       font-size: 0.9rem;
       line-height: 1.4;
-      max-width: 70ch;
+      max-width: 100%;
       opacity: 0.9;
     }
 
@@ -574,7 +645,7 @@
         <h2 class="stop-heading">Third stop — 1346 E 53rd (Vue 53 corner)</h2>
         <p class="stop-text">
           This used to be a car wash and gas station, the kind of place you pass without thinking.
-          Over just a few years, it transforms into Vue 53 and Target, reshaping how this stretch of 53rd feels.
+          In just a few years, it turns into Vue 53 and Target and suddenly this part of 53rd feels completely different.
         </p>
       </div>
     </section>
@@ -635,7 +706,7 @@
           class="scene-step"
           data-src="img/s3-06.jpeg"
           data-title="1346 E 53rd – 2025"
-          data-text="By 2025, the building feels settled in. For many students, Vue 53 and Target are just how this corner has always looked.">
+          data-text="By 2025, the building feels settled in. For many, Vue 53 and Target are just how this corner has always looked.">
         </div>
       </div>
   </section>
@@ -643,7 +714,7 @@
     <!-- CONTINUE PROMPT BEFORE FOURTH WALK -->
     <section class="continue-section">
       <div class="continue-inner">
-        <h2 class="continue-heading">Let’s keep going.</h2>
+        <h2 class="continue-heading">Almost there.</h2>
         <p class="continue-text">
           Back in 2007, we&#39;re heading a little further west to our final stop.
         </p>
@@ -739,7 +810,7 @@
           class="scene-step"
           data-src="img/s4-05.jpeg"
           data-title="Across from CVS – 2011"
-          data-text="A few years later, the is still here: same cozy vibe, same slightly scruffy storefront.">
+          data-text="A few years later, the cafe is still here: same cozy vibe, same slightly scruffy storefront.">
         </div>
 
         <div
@@ -771,6 +842,72 @@
         </div>
       </div>
     </section>
+
+    <!-- CONTINUE PROMPT BEFORE FIFTH WALK (BACK EAST IN 2025) -->
+    <section class="continue-section">
+      <div class="continue-inner">
+        <h2 class="continue-heading">Heading back.</h2>
+        <p class="continue-text">
+          We’ve reached the western end of our little tour in time. Let’s turn around and walk back east along 53rd, towards where we started.
+        </p>
+      </div>
+    </section>
+
+    <!-- TRANSITION 5: scroll-driven walk t5-01 ... t5-06 (2025, CVS to Vue 53) -->
+    <section class="walk"
+             data-walk
+             data-prefix="t5-"
+             data-frames="6"
+             data-ext="jpeg">
+      <div class="walk-sticky">
+        <img class="walk-image" src="img/t5-01.jpeg" alt="" />
+      </div>
+    </section>
+
+    <!-- LITTLE INTERLUDE BEFORE FINAL REWIND -->
+    <section class="continue-section">
+      <div class="continue-inner">
+        <h2 class="continue-heading">Oh Wait!</h2>
+        <p class="continue-text">
+          We just walked this stretch in 2025. Lit up, built up, and full of people. But before we finish, let’s rewind to 2007 and continue the same path one more time.
+        </p>
+      </div>
+    </section>
+
+    <!-- TRANSITION 6: scroll-driven walk t6-01 ... t6-46 (2007, back to the start) -->
+    <section class="walk"
+             data-walk
+             data-prefix="t6-"
+             data-frames="46"
+             data-ext="jpeg">
+      <div class="walk-sticky">
+        <img class="walk-image" src="img/t6-01.jpeg" alt="" />
+      </div>
+    </section>
+
+    <!-- EPILOGUE / CLOSING SECTION -->
+    <section class="epilogue">
+      <div class="epilogue-inner">
+        <h2 class="epilogue-heading">Back where we began.</h2>
+        <p class="epilogue-text">
+          If you’ve lived in Hyde Park, you probably recognize at least one of these corners as “yours”: your go-to coffee spot, your first apartment, your default hang out spot.
+        </p>
+        <p class="epilogue-text">
+          We’ve only walked a kilometer or so, but we jumped almost twenty years. Somewhere in the middle, all of us showed up, overlapped for a few years, and built our own versions of 53rd.
+        </p>
+        <p class="epilogue-text">
+          The street will keep changing. Valois will probably still be there. CVS will probably still come to the rescue at 3am. And even if we’re scattered around the world in different cities, this little strip of home will always hold a version of us, frozen in time. Not necessarily the one we saw today, but the one in our stories, group chats, and memories.
+        </p>
+        <div class="epilogue-sign">
+          <img src="img/s0_01.jpeg" alt="53rd Street sign" />
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="site-footer">
+      Made by Shri in 2026.
+    </footer>
 
 </main>
 
