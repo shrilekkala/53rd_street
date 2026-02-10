@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>53rd Street Scrollytelling – Prototype</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    main {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      position: relative;
+      width: 100%;
+    }
+
+    /* ---------- HERO (TITLE) SECTION ---------- */
+
+    .hero {
+      min-height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ---------- TRANSITION (SCROLL-DRIVEN WALK) ---------- */
+
+    .walk {
+      height: 400vh; /* bigger = slower walk; tweak this */
+      background: #000;
+    }
+
+    .walk-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .walk-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ---------- SCENES SECTION (SCROLL-DRIVEN, STEP-BY-STEP) ---------- */
+
+    .scenes {
+      min-height: 200vh; /* enough for multiple steps */
+      background: #000;
+    }
+
+    .scenes-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .scenes-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .scene-steps {
+      position: relative;
+    }
+
+    .scene-step {
+      height: 100vh; /* each = one scroll "page" for the scene image */
+    }
+
+    .scenes-frame {
+      max-width: 100%;
+      padding: 16px 12px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .scene-caption {
+      text-align: left;
+    }
+
+    .scene-caption-top {
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .scene-title {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .scene-caption-bottom {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      max-width: 70ch;
+      opacity: 0.9;
+    }
+
+    .scene-text {
+      margin: 0;
+    }
+
+    /* For mobile adjustments */
+    @media (max-width: 768px) {
+      .scenes-frame {
+        padding: 12px 10px 20px;
+      }
+
+      .scene-caption-bottom {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* debugging helper:
+    .scene-step:nth-child(odd) { outline: 1px solid red; }
+    .scene-step:nth-child(even) { outline: 1px solid blue; }
+    */
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <!-- HERO / TITLE SCREEN -->
+    <section class="hero">
+      <img src="img/s0_01.jpeg" alt="53rd Street sign" />
+    </section>
+
+    <!-- TRANSITION 1: scroll-driven walk t1-01 ... t1-07 -->
+    <section class="walk"
+             data-walk
+             data-prefix="t1-"
+             data-frames="7"
+             data-ext="jpeg">
+      <div class="walk-sticky">
+        <img class="walk-image" src="img/t1-01.jpeg" alt="" />
+      </div>
+    </section>
+
+    <!-- SCENES GROUP 1: s1-01, s1-02, etc. (scroll-driven steps) -->
+    <section class="scenes" data-scenes>
+      <div class="scenes-sticky">
+        <div class="scenes-frame">
+          <div class="scene-caption scene-caption-top">
+            <h2 class="scene-title"></h2>
+          </div>
+
+          <img class="scenes-image" src="" alt="" />
+
+          <div class="scene-caption scene-caption-bottom">
+            <p class="scene-text"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-steps">
+        <!-- Each step now includes image + title + text data -->
+        <div
+          class="scene-step"
+          data-src="img/s1-01.jpeg"
+          data-title="1520 E 53rd – 2007"
+          data-text="Valois with Hollywood Video and Bonne Sante as neighbors – 53rd before the chains and apartments arrive.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s1-02.jpeg"
+          data-title="1520 E 53rd – 2013"
+          data-text="By 2013, LA Fitness and the new apartments come in. Valois stays the same while the block modernizes around it.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s1-03.jpeg"
+          data-title="1520 E 53rd – 2016"
+          data-text="Chipotle appears, and this corner starts to look more like the version students know today.">
+        </div>
+
+        <div
+          class="scene-step"
+          data-src="img/s1-04.jpeg"
+          data-title="1520 E 53rd – 2025"
+          data-text="Our mental snapshot: Valois, LA Fitness, the apartments, Chipotle, and a Chick-fil-A under construction.">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      /* ===============================
+         TRANSITIONS: SCROLL-DRIVEN WALKS
+         =============================== */
+
+      const walkSections = document.querySelectorAll("[data-walk]");
+
+      walkSections.forEach(section => {
+        const prefix = section.dataset.prefix || "";
+        const frameCount = parseInt(section.dataset.frames, 10) || 0;
+        const ext = section.dataset.ext || "jpeg";
+        const imgEl = section.querySelector(".walk-image");
+
+        const sources = [];
+        for (let i = 1; i <= frameCount; i++) {
+          const indexStr = String(i).padStart(2, "0");
+          const src = `img/${prefix}${indexStr}.${ext}`;
+          sources.push(src);
+
+          // Preload frames
+          const img = new Image();
+          img.src = src;
+        }
+
+        section._frameSources = sources;
+        section._imgEl = imgEl;
+      });
+
+      function updateWalks() {
+        const viewportHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+
+        walkSections.forEach(section => {
+          const sources = section._frameSources;
+          const imgEl = section._imgEl;
+          if (!sources || sources.length === 0 || !imgEl) return;
+
+          const maxIndex = sources.length - 1;
+
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+
+          let frameIndex;
+
+          if (scrollY <= sectionTop) {
+            // Before section starts → first frame
+            frameIndex = 0;
+          } else if (scrollY >= sectionTop + sectionHeight - viewportHeight) {
+            // After section ends → last frame
+            frameIndex = maxIndex;
+          } else {
+            // Inside section → map scroll progress to frame index
+            const usableScroll = sectionHeight - viewportHeight || 1;
+            const progress = (scrollY - sectionTop) / usableScroll; // 0–1
+            const clamped = Math.min(Math.max(progress, 0), 1);
+            frameIndex = Math.round(clamped * maxIndex);
+          }
+
+          const nextSrc = sources[frameIndex];
+          // Avoid redundant src assignments
+          if (!imgEl.src.endsWith(nextSrc)) {
+            imgEl.src = nextSrc;
+          }
+        });
+      }
+
+      window.addEventListener("scroll", () => {
+        window.requestAnimationFrame(updateWalks);
+      });
+      window.addEventListener("resize", updateWalks);
+
+      // Initial paint
+      updateWalks();
+
+      /* ===============================
+         SCENES: STICKY IMAGE + STEPS
+         =============================== */
+
+      const scenesSections = document.querySelectorAll("[data-scenes]");
+
+      // Initialize each scenes group
+      scenesSections.forEach(section => {
+        const imgEl = section.querySelector(".scenes-image");
+        const titleEl = section.querySelector(".scene-title");
+        const textEl = section.querySelector(".scene-text");
+        const steps = Array.from(section.querySelectorAll(".scene-step"));
+
+        if (!imgEl || !titleEl || !textEl || steps.length === 0) return;
+
+        section._imgEl = imgEl;
+        section._titleEl = titleEl;
+        section._textEl = textEl;
+        section._steps = steps;
+
+        // Set initial image + text from first step
+        const firstStep = steps[0];
+        const firstSrc = firstStep.dataset.src;
+        const firstTitle = firstStep.dataset.title || "";
+        const firstText = firstStep.dataset.text || "";
+
+        if (firstSrc) {
+          imgEl.src = firstSrc;
+        }
+        titleEl.textContent = firstTitle;
+        textEl.textContent = firstText;
+      });
+
+      const stepObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+
+          const step = entry.target;
+          const section = step.closest("[data-scenes]");
+          if (!section) return;
+
+          const imgEl = section._imgEl;
+          const titleEl = section._titleEl;
+          const textEl = section._textEl;
+
+          const src = step.dataset.src;
+          const title = step.dataset.title || "";
+          const text = step.dataset.text || "";
+
+          if (imgEl && src && !imgEl.src.endsWith(src)) {
+            imgEl.src = src;
+          }
+          if (titleEl) {
+            titleEl.textContent = title;
+          }
+          if (textEl) {
+            textEl.textContent = text;
+          }
+        });
+      }, {
+        threshold: 0.6
+      });
+
+      scenesSections.forEach(section => {
+        const steps = section._steps || [];
+        steps.forEach(step => stepObserver.observe(step));
+      });
+    });
+  </script>
+
+</body>
+</html>
