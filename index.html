@@ -536,9 +536,8 @@
       </div>
     </section>
 
-
     <footer class="site-footer">
-      Made by Shri in 2026.
+      Made with &lt;3 by Shri in 2026.
     </footer>
 
 </main>
@@ -551,6 +550,7 @@
     }
 
     // Set on load; we avoid listening to resize to keep the value stable as toolbars show/hide
+    window.addEventListener("DOMContentLoaded", setLockedVh);
     window.addEventListener("load", setLockedVh);
   </script>
 
