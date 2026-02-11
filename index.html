@@ -544,6 +544,17 @@
 </main>
 
   <script>
+    // Lock viewport height once to avoid jank in in-app browsers
+    function setLockedVh() {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      document.documentElement.style.setProperty("--vh-locked", vh + "px");
+    }
+
+    // Set on load; we avoid listening to resize to keep the value stable as toolbars show/hide
+    window.addEventListener("load", setLockedVh);
+  </script>
+
+  <script>
     document.addEventListener("DOMContentLoaded", () => {
       /* ===============================
          TRANSITIONS: SCROLL-DRIVEN WALKS
