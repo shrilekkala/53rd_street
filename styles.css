@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+:root {
+    /* Fallback value; will be overridden by JS with a locked viewport height */
+    --vh-locked: 100vh;
+}
+
 body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -25,6 +30,7 @@ section {
 
 .hero {
     min-height: 100vh;
+    min-height: var(--vh-locked, 100vh);
     background: #000;
     display: flex;
     flex-direction: column;
@@ -262,7 +268,8 @@ section {
 /* ---------- TRANSITION (SCROLL-DRIVEN WALK) ---------- */
 
 .walk {
-    height: 400vh; /* bigger = slower walk; tweak this */
+    height: 400vh; /* fallback */
+    height: calc(var(--vh-locked, 100vh) * 4); /* bigger = slower walk; tweak this */
     background: #000;
 }
 
@@ -270,6 +277,7 @@ section {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: var(--vh-locked, 100vh);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -294,6 +302,7 @@ section {
     position: sticky;
     top: 0;
     height: 100vh;
+    height: var(--vh-locked, 100vh);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -312,7 +321,8 @@ section {
 }
 
 .scene-step {
-    height: 100vh; /* each = one scroll "page" for the scene image */
+    height: 100vh; /* fallback; each = one scroll "page" for the scene image */
+    height: var(--vh-locked, 100vh);
 }
 
 .scenes-frame {
